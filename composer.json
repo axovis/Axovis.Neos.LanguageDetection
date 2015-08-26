@@ -1,0 +1,11 @@
+{
+  "name": "axovis/languagedetection",
+  "type": "typo3-flow-package",
+  "description": "Add browser language detection plugin to neos",
+  "version": "0.1",
+  "require": {
+    "typo3/flow": "3.*",
+    "typo3/typoscript": "*",
+    "typo3/neos": "2.*"
+  }
+}

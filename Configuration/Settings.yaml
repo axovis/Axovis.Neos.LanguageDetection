@@ -1,0 +1,10 @@
+TYPO3:
+  Flow:
+    http:
+      chain:
+        'preprocess':
+          chain:
+            'detectLanguage':
+              component: 'Axovis\LanguageDetection\LanguageDetectionComponent'
+              componentOptions:
+                ignoreSegments: ['neos']
