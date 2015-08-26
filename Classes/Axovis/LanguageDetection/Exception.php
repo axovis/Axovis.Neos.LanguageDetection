@@ -1,5 +1,5 @@
 <?php
-namespace Axovis\LanguageDetection;                                                                      */
+namespace Axovis\LanguageDetection;             
 
 /**
  * A generic TYPO3 exception
