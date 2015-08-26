@@ -11,4 +11,3 @@ Configuration
 If you already have a multilanguage site, you have nothing more to do.
 Otherwise follow this tutorial to translate your content:
 http://neos.readthedocs.org/en/1.2/IntegratorsCookbook/TranslatingContent.html
-
