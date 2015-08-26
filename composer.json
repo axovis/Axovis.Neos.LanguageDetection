@@ -10,7 +10,7 @@
             "email": "s.michelsen@axovis.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "typo3/flow": "3.*",
         "typo3/typoscript": "*",
