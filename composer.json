@@ -3,7 +3,7 @@
     "description": "automatic language detection for Neos",
     "version": "1.0.0",
     "type": "typo3-flow-plugin",
-    "license": "GNU GPL v2",
+    "license": "GPL-2.0",
     "authors": [
         {
             "name": "Sönke Michelsen",
