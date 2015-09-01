@@ -5,6 +5,6 @@ TYPO3:
         'preprocess':
           chain:
             'detectLanguage':
-              component: 'Axovis\LanguageDetection\LanguageDetectionComponent'
+              component: 'Axovis\Neos\LanguageDetection\LanguageDetectionComponent'
               componentOptions:
                 ignoreSegments: ['neos','setup']

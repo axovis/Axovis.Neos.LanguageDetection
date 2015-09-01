@@ -1,5 +1,5 @@
 <?php
-namespace Axovis\LanguageDetection;
+namespace Axovis\Neos\LanguageDetection;
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Http\Component\ComponentChain;
