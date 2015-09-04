@@ -48,6 +48,12 @@ class LanguageDetectionComponent implements ComponentInterface {
      */
     public function handle(ComponentContext $componentContext) {
         $httpRequest = $componentContext->getHttpRequest();
+
+        //Check if url contains user, if so, don't detect language
+        if(strpos($httpRequest->getUri()->getPath(),'@user-')){
+            return;
+        }
+
         $requestPath = $httpRequest->getUri()->getPath();
         $firstRequestPathSegment = explode('/', ltrim($requestPath, '/'))[0];
 
@@ -59,7 +65,7 @@ class LanguageDetectionComponent implements ComponentInterface {
                 return;
             }
         } else {
-            //we're at the backend => no need for us to proceed
+            //we're at the setup or neos login page => no need for us to proceed
             return;
         }
 
