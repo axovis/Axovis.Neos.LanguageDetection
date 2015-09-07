@@ -42,6 +42,12 @@ class LanguageDetectionComponent implements ComponentInterface {
     protected $httpSettings;
 
     /**
+     * @Flow\InjectConfiguration(package="MOC.Varnish")
+     * @var array
+     */
+    protected $varnishSettings;
+
+    /**
      * @param array $options The component options
      */
     public function __construct(array $options = array()) {
@@ -78,8 +84,9 @@ class LanguageDetectionComponent implements ComponentInterface {
         $referer = $httpRequest->getHeaders()->get('Referer');
         $refererInfo = $this->parseUriInfo($referer);
         $currentInfo = $this->parseUriInfo((string)$httpRequest->getUri());
+        $varnishInfo = isset($this->varnishSettings['varnishUrl']) ? $this->parseUriInfo($this->varnishSettings['varnishUrl']) : null;
 
-        if($refererInfo['host'] == $currentInfo['host']) {
+        if($refererInfo['host'] == $currentInfo['host'] || ($varnishInfo !== null && $refererInfo['host'] == $varnishInfo['host'])) {
             $firstRefererRequestPathSegment = explode('/', ltrim($refererInfo['requestPath'], '/'))[0];
             $refererPreset = $preset = $this->findPreset($firstRefererRequestPathSegment);
 
