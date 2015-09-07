@@ -36,7 +36,7 @@ class LanguageDetectionComponent implements ComponentInterface {
     protected $options;
 
     /**
-     * @Flow\InjectConfiguration(package="TYPO3.http")
+     * @Flow\InjectConfiguration(package="TYPO3.Flow.http")
      * @var array
      */
     protected $httpSettings;
