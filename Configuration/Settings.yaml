@@ -7,4 +7,4 @@ TYPO3:
             'detectLanguage':
               component: 'Axovis\Neos\LanguageDetection\LanguageDetectionComponent'
               componentOptions:
-                ignoreSegments: ['neos','setup']  #no language detection for this segments
+                ignoreSegments: ['neos','setup','_Resources']  #no language detection for this segments

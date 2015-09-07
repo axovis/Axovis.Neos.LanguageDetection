@@ -138,7 +138,7 @@ class LanguageDetectionComponent implements ComponentInterface {
 
         return array(
             'protocol' => $matches[2],
-            'host' => $matches[4],
+            'host' => $matches[3].$matches[4],
             'requestPath' => $matches[5]
         );
     }
