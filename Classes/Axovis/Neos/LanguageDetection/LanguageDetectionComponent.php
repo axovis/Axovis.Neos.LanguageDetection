@@ -36,6 +36,12 @@ class LanguageDetectionComponent implements ComponentInterface {
     protected $options;
 
     /**
+     * @Flow\InjectConfiguration(package="TYPO3.http")
+     * @var array
+     */
+    protected $httpSettings;
+
+    /**
      * @param array $options The component options
      */
     public function __construct(array $options = array()) {
@@ -52,14 +58,14 @@ class LanguageDetectionComponent implements ComponentInterface {
         $firstRequestPathSegment = explode('/', ltrim($requestPath, '/'))[0];
 
         $preset = null;
-        if(!in_array($firstRequestPathSegment, $this->options['ignoreSegments'])) {
+        if(!isset($this->options['ignoreSegments']) || !in_array($firstRequestPathSegment, $this->options['ignoreSegments'])) {
             $preset = $this->findPreset($firstRequestPathSegment);
             if($preset !== null) {
                 //uri contains a valid language segment => no need for us to proceed
                 return;
             }
         } else {
-            //we're at the backend => no need for us to proceed
+            //the configuration told us to ignore this segment => no need for us to proceed
             return;
         }
 
@@ -99,11 +105,24 @@ class LanguageDetectionComponent implements ComponentInterface {
         }
 
         $uri = $httpRequest->getUri();
+        if(isset($this->httpSettings['baseUri'])) {
+            $baseInfo = $this->parseUriInfo($this->httpSettings['baseUri']);
+
+            $uri->setHost($baseInfo['host']);
+        }
+        if(isset($this->httpSettings['port'])) {
+            $uri->setPort($this->httpSettings['port']);
+        }
+        if(isset($this->httpSettings['username'])) {
+            $uri->setUsername($this->httpSettings['username']);
+        }
+        if(isset($this->httpSettings['password'])) {
+            $uri->setUsername($this->httpSettings['password']);
+        }
         $uri->setPath('/' . $preset['uriSegment'] . $requestPath);
 
         $response = $componentContext->getHttpResponse();
         $response->setContent(sprintf('<html><head><meta http-equiv="refresh" content="0;url=%s"/></head></html>', htmlentities((string)$uri, ENT_QUOTES, 'utf-8')));
-        $response->setStatus(301);
         $response->setHeader('Location', (string)$uri);
 
         $componentContext->setParameter(ComponentChain::class, 'cancel', TRUE);
