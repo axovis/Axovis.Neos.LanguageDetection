@@ -57,6 +57,11 @@ class LanguageDetectionComponent implements ComponentInterface {
         $requestPath = $httpRequest->getUri()->getPath();
         $firstRequestPathSegment = explode('/', ltrim($requestPath, '/'))[0];
 
+        //Check if url contains user, if so, don't detect language
+        if(strpos($requestPath,'@user-')){
+            return;
+        }
+
         $preset = null;
         if(!isset($this->options['ignoreSegments']) || !in_array($firstRequestPathSegment, $this->options['ignoreSegments'])) {
             $preset = $this->findPreset($firstRequestPathSegment);
