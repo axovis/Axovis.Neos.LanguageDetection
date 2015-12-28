@@ -1,7 +1,7 @@
 {
     "name": "axovis/neos-languagedetection",
     "description": "automatic language detection for Neos",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "type": "typo3-flow-plugin",
     "license": "GPL-2.0",
     "authors": [
@@ -17,7 +17,7 @@
         "typo3/neos": "2.*"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Axovis\\Neos\\LanguageDetection": "Classes"
         }
     }
