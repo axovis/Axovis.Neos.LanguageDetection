@@ -14,8 +14,8 @@
         "typo3/neos": "2.*"
     },
     "autoload": {
-        "psr-4": {
-            "Axovis\\Neos\\LanguageDetection\\": "Classes"
+        "psr-0": {
+            "Axovis\\Neos\\LanguageDetection": "Classes"
         }
     }
 }
