@@ -68,6 +68,11 @@ class LanguageDetectionComponent implements ComponentInterface {
             return;
         }
 
+        if (isset($this->options['allowedMethods']) && !in_array($httpRequest->getMethod(), $this->options['allowedMethods'])) {
+            //the current HTTP method is not within the allow methods, abort!
+            return;
+        }
+
         $preset = null;
         if(!isset($this->options['ignoreSegments']) || !in_array($firstRequestPathSegment, $this->options['ignoreSegments'])) {
             $preset = $this->findPreset($firstRequestPathSegment);
