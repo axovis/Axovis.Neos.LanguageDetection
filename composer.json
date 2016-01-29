@@ -17,5 +17,8 @@
         "psr-0": {
             "Axovis\\Neos\\LanguageDetection": "Classes"
         }
+    },
+    "extra": {
+        "marketplace-account": "s.michelsen@axovis.com"
     }
 }
