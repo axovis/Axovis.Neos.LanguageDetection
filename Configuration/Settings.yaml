@@ -2,7 +2,7 @@ TYPO3:
   Flow:
     http:
       chain:
-        'preprocess':
+        'process':
           chain:
             'detectLanguage':
               component: 'Axovis\Neos\LanguageDetection\LanguageDetectionComponent'
