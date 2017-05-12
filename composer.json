@@ -19,6 +19,9 @@
         }
     },
     "extra": {
-        "marketplace-account": "s.michelsen@axovis.com"
+        "marketplace-account": "s.michelsen@axovis.com",
+        "applied-flow-migrations": [
+            "TYPO3.FLOW3-201201261636"
+        ]
     }
 }
