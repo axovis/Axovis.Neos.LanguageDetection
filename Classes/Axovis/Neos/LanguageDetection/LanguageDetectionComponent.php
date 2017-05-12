@@ -7,7 +7,7 @@ use Neos\Flow\Http\Component\ComponentContext;
 use Neos\Flow\Http\Component\ComponentInterface;
 use Neos\Flow\I18n\Detector;
 use Neos\Flow\I18n\Locale;
-use TYPO3\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
+use Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
 /**
  * A HTTP component that detects the user agent language and redirects to a corresponding section
  */
