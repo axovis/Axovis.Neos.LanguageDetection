@@ -1,20 +1,20 @@
 <?php
 namespace Axovis\Neos\LanguageDetection;
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Http\Component\ComponentChain;
-use TYPO3\Flow\Http\Component\ComponentContext;
-use TYPO3\Flow\Http\Component\ComponentInterface;
-use TYPO3\Flow\I18n\Detector;
-use TYPO3\Flow\I18n\Locale;
-use TYPO3\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Component\ComponentChain;
+use Neos\Flow\Http\Component\ComponentContext;
+use Neos\Flow\Http\Component\ComponentInterface;
+use Neos\Flow\I18n\Detector;
+use Neos\Flow\I18n\Locale;
+use Neos\Neos\Domain\Service\ContentDimensionPresetSourceInterface;
 /**
  * A HTTP component that detects the user agent language and redirects to a corresponding section
  */
 class LanguageDetectionComponent implements ComponentInterface {
     /**
      * The response which will be returned by this action controller
-     * @var \TYPO3\Flow\Http\Response
+     * @var \Neos\Flow\Http\Response
      */
     protected $response;
 
@@ -36,7 +36,7 @@ class LanguageDetectionComponent implements ComponentInterface {
     protected $options;
 
     /**
-     * @Flow\InjectConfiguration(package="TYPO3.Flow.http")
+     * @Flow\InjectConfiguration(package="Neos.Flow.http")
      * @var array
      */
     protected $httpSettings;
